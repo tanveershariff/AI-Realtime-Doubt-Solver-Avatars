@@ -5,7 +5,7 @@ An AI-powered educational platform that helps students solve doubts using an int
 ## Features
 
 - 🎤 **Voice & Text Input**: Ask questions naturally through voice or text
-- 👨‍🏫 **Interactive AI Avatar**: Learn from a friendly AI teacher powered by HeyGen
+- 👨‍🏫 **Interactive AI Avatar**: Learn from a friendly AI teacher powered by Interactive Avatar generation Platforms like (Heygen, Synthesia, Akool) (Most of them are usually Paid) 
 - 📝 **Step-by-Step Solutions**: Get detailed explanations with proper math formatting
 - 🧮 **LaTeX Math Support**: Beautiful rendering of mathematical equations
 - 📊 **Dynamic Diagrams**: Real-time educational diagrams from Wikimedia Commons
