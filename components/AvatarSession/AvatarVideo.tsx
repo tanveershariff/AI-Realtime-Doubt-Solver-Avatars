@@ -35,7 +35,8 @@ export const AvatarVideo = forwardRef<HTMLVideoElement>(({}, ref) => {
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "contain",
+          objectFit: "cover",
+          backgroundColor: "white",
         }}
       >
         <track kind="captions" />

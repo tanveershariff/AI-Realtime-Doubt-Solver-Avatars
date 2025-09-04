@@ -1,42 +1,129 @@
-# HeyGen Interactive Avatar NextJS Demo
+# DoubtSolver AI
 
-![HeyGen Interactive Avatar NextJS Demo Screenshot](./public/demo.png)
+An AI-powered educational platform that helps students solve doubts using an interactive avatar powered by HeyGen and Google Gemini Pro, with dynamic diagrams from Wikimedia Commons.
 
-This is a sample project and was bootstrapped using [NextJS](https://nextjs.org/).
-Feel free to play around with the existing code and please leave any feedback for the SDK [here](https://github.com/HeyGen-Official/StreamingAvatarSDK/discussions).
+## Features
 
-## Getting Started FAQ
+- 🎤 **Voice & Text Input**: Ask questions naturally through voice or text
+- 👨‍🏫 **Interactive AI Avatar**: Learn from a friendly AI teacher powered by HeyGen
+- 📝 **Step-by-Step Solutions**: Get detailed explanations with proper math formatting
+- 🧮 **LaTeX Math Support**: Beautiful rendering of mathematical equations
+- 📊 **Dynamic Diagrams**: Real-time educational diagrams from Wikimedia Commons
+- 🎨 **Modern UI**: Clean, responsive design with Tailwind CSS
 
-### Setting up the demo
+## Tech Stack
 
-1. Clone this repo
+- **Frontend**: Next.js 13+ (App Router), TypeScript, Tailwind CSS
+- **AI Model**: Google Gemini Pro API
+- **Avatar**: HeyGen Interactive Avatar SDK
+- **Math Rendering**: KaTeX
+- **Voice Input**: Web Speech API
+- **Diagrams**: Wikimedia Commons API
 
-2. Navigate to the repo folder in your terminal
+## Setup Instructions
 
-3. Run `npm install` (assuming you have npm installed. If not, please follow these instructions: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/)
+### 1. Install Dependencies
 
-4. Enter your HeyGen Enterprise API Token in the `.env` file. Replace `HEYGEN_API_KEY` with your API key. This will allow the Client app to generate secure Access Tokens with which to create interactive sessions.
+```bash
+npm install
+```
 
-   You can retrieve either the API Key by logging in to HeyGen and navigating to this page in your settings: [https://app.heygen.com/settings?from=&nav=Subscriptions%20%26%20API]. 
+### 2. Environment Variables
 
-5. (Optional) If you would like to use the OpenAI features, enter your OpenAI Api Key in the `.env` file.
+Create a `.env.local` file in the root directory with the following variables:
 
-6. Run `npm run dev`
+```env
+# HeyGen API Configuration
+HEYGEN_API_KEY=your_heygen_api_key_here
+NEXT_PUBLIC_BASE_API_URL=https://api.heygen.com
 
-### Starting sessions
+# Google Gemini Pro API Configuration
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-NOTE: Make sure you have enter your token into the `.env` file and run `npm run dev`.
+### 3. Get API Keys
 
-To start your 'session' with a Interactive Avatar, first click the 'start' button. If your HeyGen API key is entered into the Server's .env file, then you should see our demo Interactive Avatar appear.
+#### HeyGen API Key
+1. Sign up at [HeyGen](https://www.heygen.com/)
+2. Navigate to your account settings
+3. Generate an API key
 
-If you want to see a different Avatar or try a different voice, you can close the session and enter the IDs and then 'start' the session again. Please see below for information on where to retrieve different Avatar and voice IDs that you can use.
+#### Google Gemini Pro API Key
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Create a new API key for Gemini Pro
 
-### Which Avatars can I use with this project?
+### 4. Run the Application
 
-By default, there are several Public Avatars that can be used in Interactive Avatar. (AKA Interactive Avatars.) You can find the Avatar IDs for these Public Avatars by navigating to [labs.heygen.com/interactive-avatar](https://labs.heygen.com/interactive-avatar) and clicking 'Select Avatar' and copying the avatar id.
+```bash
+npm run dev
+```
 
-You can create your own custom Interactive Avatars at labs.heygen.com/interactive-avatar by clicking 'create interactive avatar' on the top-left of the screen.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Where can I read more about enterprise-level usage of the Interactive Avatar API?
+## Usage
 
-Please read our Interactive Avatar 101 article for more information on pricing: https://help.heygen.com/en/articles/9182113-interactive-avatar-101-your-ultimate-guide
+1. **Landing Page**: Visit the home page to learn about the features
+2. **Start Learning**: Click "Try Now" to access the doubt solver workspace
+3. **Ask Questions**: Use voice or text input to ask your educational doubts
+4. **Get Answers**: Watch the AI avatar explain concepts while reading detailed solutions
+5. **View Diagrams**: See relevant educational diagrams automatically fetched from Wikimedia Commons
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx              # Landing page
+│   ├── solver/
+│   │   └── page.tsx          # Main doubt solver workspace
+│   ├── test-diagrams/
+│   │   └── page.tsx          # Test page for diagram functionality
+│   └── api/
+│       ├── ask/              # Gemini Pro API integration
+│       ├── get-access-token/ # HeyGen token generation
+│       └── commons-search/   # Wikimedia Commons API integration
+├── components/
+│   ├── DoubtSolverWorkspace.tsx  # Main workspace component
+│   ├── ExplanationPanel.tsx      # Math/formatted explanation renderer
+│   ├── DiagramPanel.tsx          # Wikimedia Commons diagram display
+│   └── ...                     # Other UI components
+└── ...
+```
+
+## How It Works
+
+1. **Question Input**: Students can ask questions via voice or text
+2. **AI Processing**: Questions are sent to Google Gemini Pro for analysis
+3. **Response Generation**: Gemini creates both a conversational script and detailed explanation
+4. **Avatar Response**: The conversational script is sent to HeyGen for avatar speech
+5. **Explanation Display**: The detailed explanation is rendered with math formatting
+6. **Diagram Fetching**: Key terms are extracted and used to search Wikimedia Commons for relevant diagrams
+7. **Visual Learning**: Students see educational diagrams with proper attribution
+
+## Wikimedia Commons Integration
+
+The app automatically fetches relevant educational diagrams from Wikimedia Commons:
+
+- **Smart Query Extraction**: Key terms are extracted from questions and explanations
+- **Caching**: API responses are cached for 6 hours to improve performance
+- **Attribution**: All diagrams display proper author and license information
+- **Multiple Formats**: Prefers SVG diagrams, falls back to PNG/JPEG
+- **Responsive Design**: Diagrams work well on all device sizes
+
+### Testing Diagrams
+
+Visit `/test-diagrams` to test the Wikimedia Commons integration with sample queries.
+
+## Performance Features
+
+- **Server-side Caching**: Wikimedia Commons API responses cached for 6 hours
+- **Debounced Search**: Diagram searches are debounced to avoid excessive API calls
+- **Image Optimization**: Uses Wikimedia thumbnails for fast loading
+- **Error Handling**: Graceful fallbacks when diagrams aren't available
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## License
+
+This project is licensed under the MIT License.
