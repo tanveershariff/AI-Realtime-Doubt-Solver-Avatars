@@ -26,6 +26,9 @@ importers:
       ahooks:
         specifier: ^3.8.4
         version: 3.9.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      jsonrepair:
+        specifier: ^3.13.0
+        version: 3.13.0
       katex:
         specifier: ^0.16.9
         version: 0.16.22
@@ -1729,6 +1732,10 @@ packages:
 
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
+    hasBin: true
+
+  jsonrepair@3.13.0:
+    resolution: {integrity: sha512-5YRzlAQ7tuzV1nAJu3LvDlrKtBFIALHN2+a+I1MGJCt3ldRDBF/bZuvIPzae8Epot6KBXd0awRZZcuoeAsZ/mw==}
     hasBin: true
 
   jsx-ast-utils@3.3.5:
@@ -4359,6 +4366,8 @@ snapshots:
   json5@1.0.2:
     dependencies:
       minimist: 1.2.8
+
+  jsonrepair@3.13.0: {}
 
   jsx-ast-utils@3.3.5:
     dependencies:
