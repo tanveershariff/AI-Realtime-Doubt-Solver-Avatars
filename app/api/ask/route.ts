@@ -102,7 +102,7 @@ Student Question: "${question}"
 Please provide your response in the exact JSON format specified above.`;
 
     // Retry wrapper for transient 5xx errors (model overload, etc.)
-    async function generateWithRetry(maxAttempts = 3) {
+    const generateWithRetry = async (maxAttempts = 3) => {
       let attempt = 0;
       let lastErr: unknown;
       while (attempt < maxAttempts) {
